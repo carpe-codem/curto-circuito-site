@@ -3,7 +3,8 @@ import {
   Container, 
   Input, 
   InputGroup, 
-  InputGroupAddon, 
+  FormGroup,
+  Label, 
   InputGroupButtonDropdown,
   Button, 
   DropdownToggle,
@@ -43,8 +44,16 @@ export default class HomeView extends React.Component {
     return (
       <section id="search">
         <Container>
-          <InputGroup>
-            <Input placeholder="Meu destino é" />
+          <FormGroup>
+            <Label>Saindo de</Label>
+            <Input placeholder='Minha origem' />
+          </FormGroup>
+          <FormGroup>
+            <Label>Quero chegar a</Label>
+            <Input placeholder="Meu destino" />
+          </FormGroup>
+          <FormGroup row>
+            <Label>Andando no máximo</Label>
             <InputGroupButtonDropdown addonType="prepend" isOpen={this.state.splitButtonOpen} toggle={this.toggleSplit}>
               <Button outline>200 m</Button>
               <DropdownToggle split outline />
@@ -55,9 +64,8 @@ export default class HomeView extends React.Component {
                 <DropdownItem>500 metros</DropdownItem>
               </DropdownMenu>
             </InputGroupButtonDropdown>
-          </InputGroup> 
-
-          <Button color="primary" size="lg" block>ESTACIONA-ME</Button>
+          </FormGroup>
+          <Button onClick={() => this.props.history.push('/mapa')} color="primary" size="lg" block>ESTACIONE-ME</Button>
         </Container>
       
       </section>

@@ -1,0 +1,27 @@
+@import './variables';
+
+#App {
+    h1 {
+        text-align: center;
+    }
+    
+    .form-group {
+        margin-bottom: 10px;
+
+        &:last-of-type {
+            margin-bottom: 170px;
+        }
+
+        &.row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-right: 0px;
+            margin-left: 0px;
+        }
+
+        .label {
+            text-transform: uppercase;
+        }
+    }
+}
