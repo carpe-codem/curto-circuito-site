@@ -42,3 +42,14 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+## Deploy this to S3
+You need the aws command line interface, to deploy.
+```
+sudo pip3 install awscli
+```
+
+Finally,
+```
+aws s3 sync . s3://curtocircuito.com --region sa-east-1
+```
