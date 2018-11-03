@@ -6,10 +6,14 @@ import './App.css';
 import HomeView from './views/home-view';
 import MapView from './views/map-view';
 
+// Global styling
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 class App extends Component {
   render() {
     return (
       <main className="App">
+        <h1>CURTO CIRCUITO</h1>
         <Router>
           <Switch>
             <Route path='/mapa' component={MapView}/>
