@@ -1,12 +1,26 @@
 @import './theme';
 
-#app {
+#App {
     #search {
-        .container {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+        .autocomplete-dropdown-container {
+            margin-top: 10px;
+            border: 1px solid #6c757d;
+
+            .suggestion-item {
+                cursor: pointer;
+                text-align: center;
+                background-color: #ffffff;
+                padding-right: 10px;
+                padding-left: 10px;
+
+                &:hover {
+                    background-color: #fafafa;
+                }
+
+                hr {
+                    margin-bottom: 0px;
+                }
+            }
         }
     }
 }
