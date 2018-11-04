@@ -63,8 +63,9 @@
   },
   "scripts": {
     "start": "node scripts/start.js",
-    "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "build": "node scripts/build.js && mv build/www.curtocircuito.com/* build/ && rm -rf build/www.curtocircuito.com",
+    "test": "node scripts/test.js",
+    "deploy": "npm run build && aws s3 rm s3://www.curtocircuito.com --recursive && aws s3 sync build s3://www.curtocircuito.com --region us-west-2"
   },
   "eslintConfig": {
     "extends": "react-app"
