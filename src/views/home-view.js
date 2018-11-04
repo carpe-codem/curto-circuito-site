@@ -233,7 +233,7 @@ export default class HomeView extends React.Component {
               </DropdownMenu>
             </InputGroupButtonDropdown>
           </FormGroup>
-          <Button onClick={() => this.props.history.push('/mapa')} color="primary" size="lg" block>ESTACIONE-ME</Button>
+          <Button onClick={() => this.props.history.push('/mapa')} color="secondary" size="lg" block>ESTACIONE-ME</Button>
         </Container>
       
       </section>
