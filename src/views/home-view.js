@@ -6,6 +6,7 @@ import {
   FormGroup,
   Label, 
   InputGroupButtonDropdown,
+  InputGroupAddon,
   Button, 
   DropdownToggle,
   DropdownMenu,
@@ -38,6 +39,40 @@ export default class HomeView extends React.Component {
       splitButtonOpen: !this.state.splitButtonOpen
     });
   }
+
+  getCurrentLocation = () => {
+    this.setState({ gps: true }, () => {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(this.setCurrentLocation, this.showError);
+      }
+    });
+  }
+
+  setCurrentLocation = (position) => {
+    console.log(position);
+    this.setState({ gps: false })
+  }
+
+  showError = (error) => {
+    switch(error.code) {
+      case error.PERMISSION_DENIED:
+        console.log("User denied the request for Geolocation.");
+        break;
+      case error.POSITION_UNAVAILABLE:
+        console.log("Location information is unavailable.");
+        break;
+      case error.TIMEOUT:
+        console.log("The request to get user location timed out.");
+        break;
+      case error.UNKNOWN_ERROR:
+        console.log("An unknown error occurred.");
+        break;
+      default:
+        console.log("An unknown error occurred.");
+    }
+
+    this.setState({ gps: false })
+}
   
   
   render() {
@@ -46,7 +81,17 @@ export default class HomeView extends React.Component {
         <Container>
           <FormGroup>
             <Label>Saindo de</Label>
-            <Input placeholder='Minha origem' />
+            <InputGroup>
+              <Input placeholder='Minha origem' />
+              <InputGroupAddon addonType="append">
+                <Button onClick={this.getCurrentLocation}>
+                { this.state.gps
+                ? <i className="fa fa-spinner fa-spin fa-lg" aria-hidden="true"/>
+                : <i className="fa fa-map-marker fa-lg" aria-hidden="true" />
+                }
+                </Button>
+              </InputGroupAddon>
+            </InputGroup>
           </FormGroup>
           <FormGroup>
             <Label>Quero chegar a</Label>

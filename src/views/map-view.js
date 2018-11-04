@@ -4,10 +4,12 @@ import { GoogleMap, withGoogleMap, withScriptjs, Polyline } from "react-google-m
 
 // Component Style
 import '../style/map.scss';
+import aubergine from '../map-themes/aubergine';
 
 const defaultMapOptions = {
   fullscreenControl: false,
-  disableDefaultUI: true
+  disableDefaultUI: true,
+  styles: aubergine
 };
 
 class MapView extends React.Component {
